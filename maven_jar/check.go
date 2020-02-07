@@ -146,7 +146,11 @@ func CheckInstall(e *syntax.CallExpr, namePrefixFilter string, versionFunc Newes
 				case "artifacts":
 					if list, ok := binExp.Y.(*syntax.ListExpr); ok {
 						for _, v := range list.List {
-							artifacts = append(artifacts, parse.ToMultiPosLiteral(v))
+							if tmp := parse.ToMultiPosLiteral(v); tmp != nil {
+								artifacts = append(artifacts, tmp)
+							} else {
+								fmt.Println(">>>>>>>>>")
+							}
 						}
 					}
 				}
