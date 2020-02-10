@@ -107,6 +107,7 @@ func Check(e *syntax.CallExpr, namePrefixFilter string, versionFunc NewestVersio
 					}
 				case "artifact":
 					mavenJarArtifact = parse.ToMultiPosLiteral(binExp.Y)
+					fmt.Println(mavenJarArtifact.Literal.Value.(string))
 				case "sha1":
 					if rhs, ok := binExp.Y.(*syntax.Literal); ok {
 						mavenJarSha1 = rhs
@@ -115,6 +116,8 @@ func Check(e *syntax.CallExpr, namePrefixFilter string, versionFunc NewestVersio
 			}
 		}
 	}
+
+	return nil, nil
 
 	// Don't attempt to upgrade this dependency
 	if !strings.HasPrefix(mavenJarName, namePrefixFilter) {

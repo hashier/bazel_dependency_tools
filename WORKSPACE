@@ -160,3 +160,19 @@ go_repository(
     sum = "h1:ZCJp+EgiOT7lHqUV2J862kp8Qj64Jo6az82+3Td9dZw=",
     version = "v2.2.2",
 )
+
+maven_jar(
+    name = "com_google_zxing_qrcode_javase",
+    artifact = "com.google.zxing:javase:3.3.3",
+    sha1 = "44d02048349c96eacb394af7978b3e6f1777bb02",
+)
+
+
+OPENCENSUS_VERSION = "0.21.0"
+
+maven_jar(
+    name = "io_opencensus_opencensus_api",
+    artifact = "io.opencensus:opencensus-api:%s" % OPENCENSUS_VERSION,
+    sha1 = "73c07fe6458840443f670b21c7bf57657093b4e1",
+)
+
